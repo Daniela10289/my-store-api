@@ -40,4 +40,24 @@ router.get('/', (req, res) => {
     });
   });
 
+  // patch recibe los objetos de forma parcial
+  // solo se envia el argumento que deseo modificar
+  router.patch('/:id', (req, res) => {
+    const { id } = req.params;
+    const body = req.body;
+    res.json({
+      message: "update", 
+      data: body,
+      id,
+    });
+  });
+
+  router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    res.json({
+      message: "delete",
+      id,
+    });
+  });
+
   module.exports = router;
