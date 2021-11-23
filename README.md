@@ -9,3 +9,4 @@ POST: crear
 DELETE: eliminar
 PATCH: modificaciones de datos especificos o actualizacion
  
+ npm i faker
