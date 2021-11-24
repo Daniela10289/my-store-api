@@ -8,7 +8,7 @@ function logErrors (err, req, res, next) {
 function errorHandler(err, req, res, next) {
     console.log('errorHandler');
     res.status(500).json({
-        message: error.message,
+        message: err.message,
         stack: err.stack,
         // si no tiene next terminaria el proceso
     });
