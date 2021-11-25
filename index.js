@@ -1,4 +1,5 @@
 const express =require('express');
+const cors = require('cors');
 const routerApi = require('./routes')
 
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
@@ -8,6 +9,20 @@ const port = 3000;
 
 //con esto podemos recibir información de tipo post que nos envian por json
 app.use(express.json()); 
+
+const whitelist = ['http://localhost:8080', 'https://myapp.co'];
+const options = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      callback(null, true) // si no hay errores el acceso a la api esta permitido
+    }else {
+      callback(new Error('no permitido'));
+    }
+  }
+}
+// configuracion para habilitar y poder conectarse desde cualquier origen
+// solo acepta su mismo dominio
+app.use(cors(options));
 
 app.get('/', (req, res) => {
   res.send('Hola, mi server en express');
