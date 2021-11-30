@@ -1,0 +1,12 @@
+# version del  yml
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=my_store
+      - POSTGRES_USER=dani
+      - POSTGRES_PASSWORD=admin123
+    ports:
+      - 5432:5432

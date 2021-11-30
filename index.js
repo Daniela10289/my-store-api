@@ -5,15 +5,15 @@ const routerApi = require('./routes')
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //con esto podemos recibir información de tipo post que nos envian por json
-app.use(express.json()); 
+app.use(express.json());
 
 const whitelist = ['http://localhost:8080', 'https://myapp.co'];
 const options = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
+    if (whitelist.includes(origin) || !origin) {
       callback(null, true) // si no hay errores el acceso a la api esta permitido
     }else {
       callback(new Error('no permitido'));
