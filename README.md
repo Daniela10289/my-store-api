@@ -16,9 +16,31 @@ PATCH: modificaciones de datos especificos o actualizacion
  levantar postgres
  docker-compose up -d postgres
 
-
 saber si el contenedor esta corrindo y si esta correcto
 docker-compose ps
 
 detener el  contenedor
 docker-compose down
+
+conectarse al contenedor 
+docker-compose exec postgres bash
+
+ingresar con las credenciales
+psql -h localhost -d my_store -U dani
+
+entrar a la bd 
+\d+
+
+salir de la bd \q
+
+salir  del contenedor
+exit
+
+obtener la ip del servidor
+docker ps --obtener el id
+docker ispect id  
+
+-- INTEGRAR NODE CON POSTGRES
+
+instalar el driver de node
+npm instal pg
