@@ -43,4 +43,4 @@ docker ispect id
 -- INTEGRAR NODE CON POSTGRES
 
 instalar el driver de node
-npm instal pg
+npm install pg
