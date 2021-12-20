@@ -44,3 +44,7 @@ docker ispect id
 
 instalar el driver de node
 npm install pg
+
+curl localhost:8080/api/v1/products
+
+npm i dotenv

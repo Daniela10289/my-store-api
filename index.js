@@ -5,7 +5,7 @@ const routerApi = require('./routes')
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 //con esto podemos recibir información de tipo post que nos envian por json
 app.use(express.json());

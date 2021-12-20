@@ -11,7 +11,7 @@ class UserService {
 
   async find() {
     const client = await getConnection();
-    const rta = await client.query('select * from task');
+    const rta = await client.query('select * from tasks');
     return rta.rows;
     return [];
   }
