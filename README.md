@@ -47,4 +47,10 @@ npm install pg
 
 curl localhost:8080/api/v1/products
 
+¿Qué es un ORM? Instalación y configuración de Sequelize ORM
+
 npm i dotenv
+
+npm install --save sequelize
+
+npm install --save pg-hstore
