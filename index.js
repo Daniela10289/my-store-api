@@ -1,4 +1,4 @@
-const express =require('express');
+const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes')
 
@@ -39,5 +39,5 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log('Mi port' + port);
+  console.log('Mi port: ' + port);
 });
