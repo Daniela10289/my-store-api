@@ -54,3 +54,17 @@ npm i dotenv
 npm install --save sequelize
 
 npm install --save pg-hstore
+
+create table tasks (
+	id serial primary key,
+	title varchar ( 255 ) not null, 
+	completed boolean default false
+);
+
+insert into tasks values (3, 'limpiar')
+
+select * from tasks
+
+select * from users
+
+npm install --save mysql2
