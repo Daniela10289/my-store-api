@@ -68,3 +68,5 @@ select * from tasks
 select * from users
 
 npm install --save mysql2
+
+npm i sequelize-cli --save-dev
