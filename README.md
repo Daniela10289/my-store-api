@@ -70,3 +70,5 @@ select * from users
 npm install --save mysql2
 
 npm i sequelize-cli --save-dev
+
+npm run migrations:generate "create-user"
