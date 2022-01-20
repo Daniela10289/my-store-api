@@ -1,7 +1,7 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
 
-const sequelize = require('../libs/sequelize')
+const { models } = require('../libs/sequelize')
 
 class ProductsService {
 
@@ -11,8 +11,8 @@ class ProductsService {
     }
 
     generate() {
-        const limit = 10;
-        for(let index = 0; index < limit; index ++) {
+        const limit = 100;
+        for(let index = 0; index < limit; index++) {
           // cada que se haga una iteración se agrega un producto al array
           this.products.push({
             id: faker.datatype.uuid(),// uuid string que va actuar de forma randomica
@@ -25,18 +25,15 @@ class ProductsService {
     }
 
     async create(data) {
-        const newProduct = {
-            id: faker.datatype.uuid(),
-            ...data //split operation para concatenar los valores
-        }
-        this.products.push(newProduct);
+        const newProduct = await models.Product.create(data);
         return newProduct;
     }
 
     async find() {
-        const query = 'SELECT * FROM tasks';
-        const [data] = await sequelize.query(query);
-        return data;
+        const products = await models.Product.findAll({
+            include: ['category']
+        });
+        return products;
     }
 
     async findOne(id) {
