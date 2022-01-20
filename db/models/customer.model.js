@@ -47,7 +47,7 @@ const CustomerSchema =  {
 class Customer extends Model {
 
   static associate(models) {
-    this.belongsTo(models.User, {as: 'user'});
+    this.belongsTo(models.User, { as: 'user' });
   }
 
   static config(sequelize) {
@@ -59,5 +59,6 @@ class Customer extends Model {
     }
   }
 }
+
 
 module.exports = { Customer, CustomerSchema, CUSTOMER_TABLE };

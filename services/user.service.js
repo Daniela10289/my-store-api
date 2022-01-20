@@ -11,7 +11,10 @@ class UserService {
   }
 
   async find() {
-    const rta = await models.User.findAll();
+    const rta = await models.User.findAll({
+      // alias que viene del modelo para crear relaciones bi dimencionales
+      include: ['customer']
+    });
     return rta;
   }
 
