@@ -73,4 +73,4 @@ npm i sequelize-cli --save-dev
 
 // generar migracion
 npm run migrations:generate "create-customers"
-
+npm run migrations:run
