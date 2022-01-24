@@ -36,8 +36,8 @@ class Order extends Model {
     this.belongsTo(models.Customer, {
       as: 'customer',
     });
+    // relación de muchos a muchos
     this.belongsToMany(models.Product, {
-      // relación de muchos a muchos
       as: 'items',
       through: models.OrderProduct,
       foreignKey: 'orderId',
