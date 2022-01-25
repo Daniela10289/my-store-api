@@ -2,19 +2,27 @@ const express =require('express');
 
 const ProductsService = require('./../services/product.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { createProductSchema, updateProductSchema, getProductSchema } = require('./../schemas/product.schema');
+const { createProductSchema, updateProductSchema, getProductSchema, queryproductSchema } = require('./../schemas/product.schema');
 
 const router = express.Router();
 const service = new ProductsService();
 
-router.get('/', async (req, res) => {
-    const products = await service.find();
-    res.json(products);
-  });
+router.get('/',
+  validatorHandler(queryproductSchema, 'query'),
+  async (req, res, next) => {
+    try {
+      const products = await service.find(req.query);
+      res.json(products);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
   
-  router.get('/filter', (req, res) => {
-    res.send('Yo soy un filter');
-  }); // enpoints de forma especifica deben ir artes que los de forma dimanica
+  // router.get('/filter', (req, res) => {
+  //   res.send('Yo soy un filter');
+  //   // enpoints de forma especifica deben ir artes que los de forma dimanica
+  // }); 
   
   //capturar el parametro de id que viene por url
   router.get('/:id', 
